@@ -143,7 +143,7 @@ class Treblle(object):
             self.final_result['data']['request']['headers'] = dict(
                 request.headers)
 
-        request_body = request.get_data(cache=False, as_text=True)
+        request_body = request.get_data(as_text=True)
         if request_body:
             try:
                 request_body = request_body.decode('utf-8')
