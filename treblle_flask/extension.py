@@ -161,8 +161,11 @@ class Treblle(object):
         self.final_result['data']['response']['headers'] = dict(
             response.headers)
         # Try to give it in dict if possible
-        self.final_result['data']['response']['body'] = response.data.decode(
-            'utf-8')
+	    
+        if "/images/" not in self.final_result["data"]["request"]["url"]:
+            self.final_result["data"]["response"]["body"] = response.data.decode(
+                "utf-8"
+            )
         try:
             # No backslash escape
             json_data = json.loads(response.data.decode('utf-8', 'ignore'))
